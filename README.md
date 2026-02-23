@@ -17,7 +17,7 @@
 本系统采用极简、强类型的技术栈，以保障单机稳定运行并最小化资源占用：
 
 * **核心运行时**: **Node.js v20+ & TypeScript 5.x**。
-* **代理协同核心**: 借鉴 `@anthropic-ai/claude-agent-sdk` 的流式执行思想，构建纯函数驱动的 ReAct 循环。
+* **代理协同核心**: 借鉴Vercel AI SDK Core 的流式执行思想，构建纯函数驱动的 ReAct 循环。
 * **通信网关**: **`dingtalk-stream-sdk-nodejs`**。钉钉官方长连接 SDK，剥离内网穿透带来的网络风险。
 * **轻量级沙盒 (重点)**: 
     * **逻辑层**: **`isolated-vm`** (基于 V8 引擎的毫秒级隔离，用于执行不受信的清洗脚本)。
@@ -26,6 +26,21 @@
 * **数据库与 ORM**: **`better-sqlite3`** (本地单线程极致读写) + **`drizzle-orm`** (无二进制依赖的轻量 TS ORM)。
 * **任务调度**: **`node-schedule`** (纯内存定时器，配合 SQLite 实现状态恢复)。
 
+## 技术栈
+
+| 层 | 技术 |
+|----|------|
+| 框架 | Electron 40 |
+| 前端 | React 18 + TypeScript |
+| 构建 | Vite 5 |
+| 样式 | Tailwind CSS 3 |
+| 状态 | Redux Toolkit |
+| AI 引擎 | Vercel AI SDK Core|
+| 存储 | sql.js |
+| Markdown | react-markdown + remark-gfm + rehype-katex |
+| 图表 | Mermaid |
+| 安全 | DOMPurify |
+| IM | dingtalk-stream · @larksuiteoapi/node-sdk · grammY · discord.js |
 ---
 
 ## 核心模块实现机制
